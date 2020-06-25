@@ -11,7 +11,7 @@ class Taster extends ResearchPlugin {
   override val description = "Research plugin for outputting tasty"
 
   def init(options: List[String], plan: List[List[Phase]])(implicit ctx: Context): List[List[Phase]] = {
-    var newPlan = plan.map((phases: List[Phase]) => phases.filterNot(_ == Pickler))
+    var newPlan = plan.map((phases: List[Phase]) => phases.filterNot(_.phaseName == Pickler.name))
     newPlan
   }
 }
