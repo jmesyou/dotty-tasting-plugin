@@ -12,6 +12,7 @@ class Taster extends ResearchPlugin {
 
   def init(options: List[String], plan: List[List[Phase]])(implicit ctx: Context): List[List[Phase]] = {
     var newPlan = plan.map((phases: List[Phase]) => phases.filterNot(_.phaseName == Pickler.name))
+    throw new Exception(s"the plan is $newPlan")
     newPlan
   }
 }
