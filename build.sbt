@@ -1,16 +1,16 @@
+val dottyVersion = dottyLatestNightlyBuild.get 
 
-val dottyVersion = dottyLatestNightlyBuild.get
-val jarName = "dotty-taster-plugin.jar"
-
-lazy val taster = project
+lazy val root = project
   .in(file("."))
   .settings(
-    name := "dotty-taster",
+    organization := "ca.uwaterloo.plg",
+    name := "dotty-taster-plugin",
+    version := "1.0",
     scalaVersion := dottyVersion,
-    libraryDependencies += "ch.epfl.lamp" %% "dotty" % dottyVersion,
-    scalacOptions ++= Seq(
-      "-Xplugin:dotty-taster-plugin.jar"
+    libraryDependencies ++= Seq(
+      "ch.epfl.lamp" %% "dotty" % dottyVersion,
     ),
-    test.in(assembly) := {},
-    assemblyOutputPath.in(assembly) := baseDirectory.value / jarName
+    scalacOptions ++= Seq(
+      "-verbose"
+    )
   )
