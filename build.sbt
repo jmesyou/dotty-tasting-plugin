@@ -10,7 +10,5 @@ lazy val root = project
     libraryDependencies ++= Seq(
       "ch.epfl.lamp" %% "dotty" % dottyVersion,
     ),
-    scalacOptions ++= Seq(
-      "-verbose"
-    )
+    scalacOptions ++= Seq()
   )
